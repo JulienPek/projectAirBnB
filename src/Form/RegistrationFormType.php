@@ -3,6 +3,7 @@
 namespace App\Form;
 
 use App\Entity\Users;
+use App\Entity\UserRegistration;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
@@ -18,11 +19,11 @@ class RegistrationFormType extends AbstractType
     {
         $builder
             ->add('email')
-            ->add('Name')
-            ->add('dateNaissance')
-            ->add('gender')
-            ->add('phoneNumber')
-            ->add('adresse')
+            // ->add('Name')
+            // ->add('dateNaissance')
+            // ->add('gender')
+            // ->add('phoneNumber')
+            // ->add('adresse')
             ->add('agreeTerms', CheckboxType::class, [
                 'mapped' => false,
                 'constraints' => [
@@ -54,7 +55,7 @@ class RegistrationFormType extends AbstractType
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            'data_class' => Users::class,
+            'data_class' => UserRegistration::class,
         ]);
     }
 }
