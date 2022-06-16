@@ -11,10 +11,8 @@ class HomeController extends AbstractController
     #[Route('/', name: 'app_home')]
     public function index(): Response
     {
-        $message = "Bienvenue sur mon site Symfony";
-        return $this->render('index.html.twig', [
-            // 'controller_name' => 'HomeController',
-            'message' => $message,
+        return $this->render('home/index.html.twig', [
+            'controller_name' => 'ScamBnB',
         ]);
     }
 }
