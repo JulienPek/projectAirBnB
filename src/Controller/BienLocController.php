@@ -8,7 +8,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class BienLocController extends AbstractController
 {
-    #[Route('/bien/loc', name: 'app_bien_loc')]
+    #[Route('/bien', name: 'app_bien_loc')]
     public function index(): Response
     {
         return $this->render('bien_loc/index.html.twig', [
