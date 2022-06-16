@@ -5,6 +5,8 @@ namespace App\Controller\Admin;
 use App\Entity\Resa;
 use App\Entity\Categories;
 use App\Entity\Users;
+use App\Entity\BienLoc;
+
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
@@ -49,6 +51,7 @@ class DashboardController extends AbstractDashboardController
             MenuItem::linkToCrud('Users', 'fas fa-list', Users::class),
             MenuItem::linkToCrud('Resa', 'fas fa-book', Resa::class),
             MenuItem::linkToCrud('Categories', 'fas fa-list', Categories::class),
+            MenuItem::linkToCrud('BienLoc', 'fas fa-list', BienLoc::class),
             // yield MenuItem::linkToCrud('The Label', 'fas fa-list', EntityClass::class);
         ];
     }
