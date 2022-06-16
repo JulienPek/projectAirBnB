@@ -1,11 +1,37 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello ResaController!{% endblock %}
+{% block title %}Hello ResaController!
+{% endblock %}
 
 {% block body %}
-<div class="container my-3">
-    <div class="row">
-        <div id="calendar"></div>
-    </div>
-</div>
+	<div class="container">
+		<div class="row">
+			<div class="col-4 m-4">
+				<form action="" class="p-4" style="box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 16px; border-radius: 12px;">
+					<label for="" class="form-label d-flex flex-row justify-content-between align-items-baseline mb-4">
+						<span>2200 € / nuit</span>
+						<span class="bi bi-star-fill">
+							5,0 ·
+							<span>3 commentaires</span>
+						</span>
+					</label>
+                    <div class="mb-4 rounded-3">
+                    <div class="d-flex">
+                    <button type="button">  
+                    <div class="dateArrivee">
+                    <span>Arrivée</span>
+                    <input type="date" name="date" id="date" class"datepicker" data-date-format="mm/dd/yyyy">
+                    </div>
+                    <div class="dateRetour">
+                    <span>Départ    </span>
+                    </div>
+                    </button>
+                    </div>
+                    
+					<input type="text" class="form-control">
+                    </div>
+				</form>
+			</div>
+		</div>
+	</div>
 {% endblock %}
