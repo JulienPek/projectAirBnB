@@ -9,18 +9,18 @@
     {{ form_start(registrationForm) }}
 
         <div class="text-center">{{ form_row(registrationForm.name)}}</div>
-        {{ form_row(registrationForm.email) }}
-        {{ form_row(registrationForm.plainPassword, {
+        <div class="text-center">{{ form_row(registrationForm.email) }}</div>
+        <div class="text-center">{{ form_row(registrationForm.plainPassword, {
             label: 'Password'
-        }) }}
-        {{ form_row(registrationForm.birthday)}}
-        {{ form_row(registrationForm.gender)}}
-        {{ form_row(registrationForm.phonenumber)}}
-        {{ form_row(registrationForm.adresse)}}
-        {{ form_row(registrationForm.choix)}}
-        {{ form_row(registrationForm.agreeTerms) }}
+        }) }}</div>
+        <div class="text-center">{{ form_row(registrationForm.birthday)}}</div>
+        <div class="text-center">{{ form_row(registrationForm.gender)}}</div>
+        <div class="text-center">{{ form_row(registrationForm.phonenumber)}}</div>
+        <div class="text-center">{{ form_row(registrationForm.adresse)}}</div>
+        <div class="text-center">{{ form_row(registrationForm.choix)}}</div>
+        <div class="text-center">{{ form_row(registrationForm.agreeTerms) }}</div>
         
-        <button type="submit" class="btn btn-danger">Register</button>
+        <div class="text-center"><button type="submit" class="btn btn-danger">Register</button></div>
 
     {{ form_end(registrationForm) }}
 </div>

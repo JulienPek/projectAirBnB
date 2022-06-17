@@ -26,7 +26,7 @@ class UserRegistrationCrudController extends AbstractCrudController
             TextField::new('gender'),
             TextField::new('phonenumber'),
             TextField::new('adresse'),
-            ArrayField::new('choix'),
+            TextField::new('choix'),
         ];
     }
     

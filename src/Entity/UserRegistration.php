@@ -193,17 +193,20 @@ class UserRegistration implements UserInterface, PasswordAuthenticatedUserInterf
         return $this;
     }
 
-    
-
-    public function getChoix(): ?array
+    public function getChoix(): ?string
     {
         return $this->choix;
     }
 
-    public function setChoix(?array $choix): self
+    public function setChoix(?string $choix): self
     {
         $this->choix = $choix;
 
         return $this;
+    }
+
+    public function __toString()
+    {
+        return $this->name;
     }
 }
