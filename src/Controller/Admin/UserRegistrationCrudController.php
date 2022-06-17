@@ -14,7 +14,6 @@ class UserRegistrationCrudController extends AbstractCrudController
         return UserRegistration::class;
     }
 
-    
     public function configureFields(string $pageName): iterable
     {
         return [
