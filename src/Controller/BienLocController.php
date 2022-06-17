@@ -18,6 +18,4 @@ class BienLocController extends AbstractController
             'bienList' => $bienList,
         ]);
     }
-
-
 }

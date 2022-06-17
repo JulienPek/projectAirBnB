@@ -189,4 +189,9 @@ class UserRegistration implements UserInterface, PasswordAuthenticatedUserInterf
 
         return $this;
     }
+
+    public function __toString()
+    {
+        return $this->name;
+    }
 }
