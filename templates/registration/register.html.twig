@@ -6,12 +6,18 @@
     <h1>Register</h1>
 <div class="container">
     {{ form_start(registrationForm) }}
+
+        {{ form_row(registrationForm.name)}}
         {{ form_row(registrationForm.email) }}
         {{ form_row(registrationForm.plainPassword, {
             label: 'Password'
         }) }}
+        {{ form_row(registrationForm.birthday)}}
+        {{ form_row(registrationForm.gender)}}
+        {{ form_row(registrationForm.phonenumber)}}
+        {{ form_row(registrationForm.adresse)}}
         {{ form_row(registrationForm.agreeTerms) }}
-
+        
         <button type="submit" class="btn btn-danger">Register</button>
     {{ form_end(registrationForm) }}
 </div>
