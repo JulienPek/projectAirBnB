@@ -37,3 +37,9 @@
     align-items: baseline !important;
     margin-bottom: 24px !important;
 }
+
+.button_resa {
+    appearance: none !important;
+    background-color: transparent !important;
+    border: none !important;
+}

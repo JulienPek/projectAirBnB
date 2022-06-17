@@ -2,7 +2,6 @@
 
 {% block title %}Hello ResaController!
 {% endblock %}
-
 {% block body %}
 	<div class="container">
 		<div class="row">
@@ -15,21 +14,57 @@
 							<span>3 commentaires</span>
 						</span>
 					</label>
-                    <div class="mb-4 rounded-3">
-                    <div class="d-flex">
-                    <button type="button">  
-                    <div class="dateArrivee">
-                    <span>Arrivée</span>
-                    <input type="date" name="date" id="date" class"datepicker" data-date-format="mm/dd/yyyy">
-                    </div>
-                    <div class="dateRetour">
-                    <span>Départ    </span>
-                    </div>
-                    </button>
-                    </div>
-                    
-					<input type="text" class="form-control">
-                    </div>
+					<div class="mb-4 rounded-3">
+						<div class="d-flex">
+							<button type="button" class="button_resa d-flex">
+								<div class="dateArrivee">
+									<span>Arrivée</span>
+									<input type="date" name="date" id="date" class"datepicker" data-date-format="mm/dd/yyyy">
+								</div>
+								<div class="dateRetour ms-2">
+									<span>Départ</span>
+									<input type="date" name="date" id="date" class"datepicker" data-date-format="mm/dd/yyyy">
+								</div>
+							</button>
+						</div>
+						<label for="" class="input-group-text">Nombre de voyageur</label>
+						<select name="inputgroupselect01" id="inputGroupSelect01" class="form-select">
+							<option selected>1 voyageur</option>
+							<option value="1">2 voyageur</option>
+							<option value="2">3 voyageur</option>
+							<option value="3">4 voyageur</option>
+							<option value="4">5 voyageur</option>
+						</select>
+						<input type="text" class="form-control">
+						                      <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="exampleFormControlSelect1">ADULTS</label>
+                                <select class="form-control" id="exampleFormControlSelect1">
+                                  <option>1 adult</option>
+                                  <option>2 adults</option>
+                                  <option>3 adults</option>
+                                  <option>4 adults</option>
+                                  <option>5 adults</option>
+                                </select>
+                            </div>
+                        </div>
+
+                          <div class="col-sm-6">
+                              <div class="form-group">
+                                <label for="exampleFormControlSelect1">CHILDREN</label>
+                                <select class="form-control" id="exampleFormControlSelect1">
+                                  <option>0 children</option>
+                                  <option>1 child</option>
+                                  <option>2 children</option>
+                                  <option>3 children</option>
+                                  <option>4 children</option>
+                                  <option>5 children</option>
+                                </select>
+                              </div>  
+                          </div>                        
+                      </div>
+					</div>
 				</form>
 			</div>
 		</div>
