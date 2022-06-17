@@ -41,6 +41,9 @@ class UserRegistration implements UserInterface, PasswordAuthenticatedUserInterf
     #[ORM\Column(type: 'string', length: 255)]
     private $adresse;
 
+    #[ORM\Column(type: 'string', length: 255, nullable: true)]
+    private $choix;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -190,8 +193,17 @@ class UserRegistration implements UserInterface, PasswordAuthenticatedUserInterf
         return $this;
     }
 
-    public function __toString()
+    
+
+    public function getChoix(): ?array
     {
-        return $this->name;
+        return $this->choix;
+    }
+
+    public function setChoix(?array $choix): self
+    {
+        $this->choix = $choix;
+
+        return $this;
     }
 }

@@ -6,6 +6,7 @@ use App\Entity\UserRegistration;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\EmailField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ArrayField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\DateField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 
 class UserRegistrationCrudController extends AbstractCrudController
@@ -21,10 +22,11 @@ class UserRegistrationCrudController extends AbstractCrudController
             EmailField::new('email'),
             ArrayField::new('roles'),
             TextField::new('name'),
-            TextField::new('birthday'),
+            DateField::new('birthday'),
             TextField::new('gender'),
             TextField::new('phonenumber'),
             TextField::new('adresse'),
+            ArrayField::new('choix'),
         ];
     }
     
