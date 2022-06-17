@@ -74,11 +74,11 @@
 			</div> #}
 
 
-	{# {{form(form)}} #}
-		{# {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
-		{{ form_widget(form) }}
-		{{ form_end(form) }} #}
-		{# <pre>
-			{{ dump(form) }}
-		</pre> #}
+
+		{{ form_start(resa) }}
+		{{ form_widget(resa) }}
+		{{ form_end(resa) }}
+		<pre>
+			{{ dump(resa) }}
+		</pre>
 	{% endblock %}
