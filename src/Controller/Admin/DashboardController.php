@@ -4,7 +4,6 @@ namespace App\Controller\Admin;
 
 use App\Entity\Resa;
 use App\Entity\Categories;
-use App\Entity\Users;
 use App\Entity\BienLoc;
 use App\Entity\UserRegistration;
 

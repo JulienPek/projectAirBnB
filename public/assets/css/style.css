@@ -43,3 +43,7 @@
     background-color: transparent !important;
     border: none !important;
 }
+
+.nbreVoyageur {
+    position: relative;
+}
