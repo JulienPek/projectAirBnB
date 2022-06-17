@@ -22,6 +22,9 @@ class BienLoc
     #[ORM\Column(type: 'string', length: 255)]
     private $capacity;
 
+    #[ORM\Column(type: 'string', length: 255)]
+    private $image;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -59,6 +62,18 @@ class BienLoc
     public function setCapacity(string $capacity): self
     {
         $this->capacity = $capacity;
+
+        return $this;
+    }
+
+    public function getImage(): ?string
+    {
+        return $this->image;
+    }
+
+    public function setImage(string $image): self
+    {
+        $this->image = $image;
 
         return $this;
     }
