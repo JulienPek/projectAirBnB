@@ -22,7 +22,7 @@ class BienLocCrudController extends AbstractCrudController
             TextField::new('adress'),
             TextField::new('capacity'),
             TextEditorField::new('description'),
-            ImageField::new('image'),
+            ImageField::new('image')->setUploadDir('public/assets/images/BienLoc Scambnb'),
         ];
     }
 
