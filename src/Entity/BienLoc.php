@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\BienLocRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: BienLocRepository::class)]
@@ -24,6 +26,23 @@ class BienLoc
 
     #[ORM\Column(type: 'string', length: 255)]
     private $image;
+
+    #[ORM\Column(type: 'float', nullable: true)]
+    private $price;
+
+    #[ORM\Column(type: 'string', length: 255, nullable: true)]
+    private $comments;
+
+    #[ORM\OneToOne(mappedBy: 'price', targetEntity: Resa::class, cascade: ['persist', 'remove'])]
+    private $resa;
+
+    #[ORM\OneToMany(mappedBy: 'comments', targetEntity: Resa::class)]
+    private $resas;
+
+    public function __construct()
+    {
+        $this->resas = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -74,6 +93,82 @@ class BienLoc
     public function setImage(string $image): self
     {
         $this->image = $image;
+
+        return $this;
+    }
+
+    public function getPrice(): ?float
+    {
+        return $this->price;
+    }
+
+    public function setPrice(?float $price): self
+    {
+        $this->price = $price;
+
+        return $this;
+    }
+
+    public function getComments(): ?string
+    {
+        return $this->comments;
+    }
+
+    public function setComments(?string $comments): self
+    {
+        $this->comments = $comments;
+
+        return $this;
+    }
+
+    public function getResa(): ?Resa
+    {
+        return $this->resa;
+    }
+
+    public function setResa(?Resa $resa): self
+    {
+        // unset the owning side of the relation if necessary
+        if ($resa === null && $this->resa !== null) {
+            $this->resa->setPrice(null);
+        }
+
+        // set the owning side of the relation if necessary
+        if ($resa !== null && $resa->getPrice() !== $this) {
+            $resa->setPrice($this);
+        }
+
+        $this->resa = $resa;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Resa>
+     */
+    public function getResas(): Collection
+    {
+        return $this->resas;
+    }
+
+    public function addResa(Resa $resa): self
+    {
+        if (!$this->resas->contains($resa)) {
+            $this->resas[] = $resa;
+            $resa->setComments($this);
+        }
+
+        return $this;
+    }
+
+    public function removeResa(Resa $resa): self
+    {
+        if ($this->resas->removeElement($resa)) {
+            // set the owning side to null (unless already changed)
+            if ($resa->getComments() === $this) {
+                $resa->setComments(null);
+            }
+        }
 
         return $this;
     }

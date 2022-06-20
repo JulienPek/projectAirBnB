@@ -23,7 +23,7 @@ class ResaCrudController extends AbstractCrudController
             // TextEditorField::new('description'),
             DateField::new('dateArrivee'),
             DateField::new('dateDepart'),
-            IntegerField::new('nbre_de_personnes'),
+            IntegerField::new('nbreVoyageur'),
         ];
     }
    

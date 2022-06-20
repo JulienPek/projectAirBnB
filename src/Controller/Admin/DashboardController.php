@@ -49,9 +49,10 @@ class DashboardController extends AbstractDashboardController
         return [
             MenuItem::linkToDashboard('Dashboard', 'fa fa-home'),
             MenuItem::linkToCrud('Resa', 'fas fa-book', Resa::class),
-            MenuItem::linkToCrud('Categories', 'fas fa-list', Categories::class),
-            MenuItem::linkToCrud('BienLoc', 'fas fa-list', BienLoc::class),
-            MenuItem::linkToCrud('UserRegistrations', 'fas fa-list', UserRegistration::class),
+            MenuItem::linkToCrud('Categories', 'fas fa-icons', Categories::class),
+            MenuItem::linkToCrud('BienLoc', 'fas fa-dice-d6', BienLoc::class),
+            MenuItem::linkToCrud('UserRegistrations', 'fas fa-head-side-cough', UserRegistration::class),
+            MenuItem::linkToLogout('Logout', 'fa fa-right-from-bracket'),
             // yield MenuItem::linkToCrud('The Label', 'fas fa-list', EntityClass::class);
         ];
     }
