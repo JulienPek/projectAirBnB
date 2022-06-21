@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello BienLocFormController!{% endblock %}
+
+{% block body %}
+<h1 class="text-center">Register BienLoc</h1>
+        <div class="container">
+            {{ form_start(BienLocForm) }}
+                {{ form_row(BienLocForm.title) }}
+                {{ form_row(BienLocForm.adress) }}
+                {{ form_row(BienLocForm.description) }}
+                {{ form_row(BienLocForm.capacity) }}
+                <div class="mb-3">
+                    <label for="formFileMultiple" class="form-label">Images du bien</label>
+                    <input class="form-control" type="file" id="formFileMultiple" multiple>
+                </div>
+                
+        <div class="text-center"><button type="submit" class="btn btn-danger">Register</button></div>
+            {{ form_end(BienLocForm) }}
+        </div>
+{% endblock %}
