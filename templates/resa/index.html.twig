@@ -3,113 +3,118 @@
 {% block title %}Hello ResaController!
 {% endblock %}
 {% block body %}
+	{# <div class="container">
+			<div class="row">
+				<div class="col-4 m-4">
+					<form action="" method="post" class="p-4" style="box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 16px; border-radius: 12px;">
+						<label for="" class="form-label d-flex flex-row justify-content-between align-items-baseline mb-4">
+							<span>2200 € / nuit</span>
+							<span class="bi bi-star text-danger">
+								<span class="text-body">5,0 · 3 commentaires</span>
+							</span>
+						</label>
+						<div class="mb-4 rounded-3">
+							<div class="d-flex mb-3">
+								<button type="button" class="button_resa d-flex">
+									<div class="dateArrivee">
+										<span>Arrivée</span>
+										<input type="date" name="dateArrivee" id="dateArrivee" class"datepicker" data-date-format="mm/dd/yyyy">
+									</div>
+									<div class="dateRetour ms-2">
+										<span>Départ</span>
+										<input type="date" name="dateDepart" id="dateDepart" class"datepicker" data-date-format="mm/dd/yyyy">
+									</div>
+								</button>
+							</div>
+							<div class="d-flex mb-3">
+								<label for="" class="input-group-text nbreVoyageur">
+									<span style="postion: absolute !important;">Nombre de voyageur</span>
+								</label>
+								<select name="nbre_de_personnes" id="inputGroupSelect01" class="form-select">
+									<option selected>1 voyageur</option>
+									<option value="1">2 voyageur</option>
+									<option value="2">3 voyageur</option>
+									<option value="3">4 voyageur</option>
+									<option value="4">5 voyageur</option>
+								</select>
+							</div>
+							<div class="row">
+								<div class="col-sm-6">
+									<div class="form-group">
+										<label for="exampleFormControlSelect1">ADULTS</label>
+										<select class="form-control" id="exampleFormControlSelect1">
+											<option>1 adult</option>
+											<option>2 adults</option>
+											<option>3 adults</option>
+											<option>4 adults</option>
+											<option>5 adults</option>
+										</select>
+									</div>
+								</div>
+	
+								<div class="col-sm-6">
+									<div class="form-group">
+										<label for="exampleFormControlSelect1">CHILDREN</label>
+										<select class="form-control" id="exampleFormControlSelect1">
+											<option>0 children</option>
+											<option>1 child</option>
+											<option>2 children</option>
+											<option>3 children</option>
+											<option>4 children</option>
+											<option>5 children</option>
+										</select>
+									</div>
+								</div>
+							</div>
+						</div>
+						<button type="submit" class="btn btn-outline-danger w-100">Réserver</button>
+					</form>
+				</div>
+			</div>
+		</div> #}
 	<div class="container">
 		<div class="row">
 			<div class="col-4 m-4">
-				<form action="" method="post" class="p-4" style="box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 16px; border-radius: 12px;">
-					<label for="" class="form-label d-flex flex-row justify-content-between align-items-baseline mb-4">
-						<span>2200 € / nuit</span>
-						<span class="bi bi-star text-danger">
-							<span class="text-body">5,0 · 3 commentaires</span>
-						</span>
-					</label>
-					<div class="mb-4 rounded-3">
-						<div class="d-flex mb-3">
-							<button type="button" class="button_resa d-flex">
-								<div class="dateArrivee">
-									<span>Arrivée</span>
-									<input type="date" name="dateArrivee" id="dateArrivee" class"datepicker" data-date-format="mm/dd/yyyy">
-								</div>
-								<div class="dateRetour ms-2">
-									<span>Départ</span>
-									<input type="date" name="dateDepart" id="dateDepart" class"datepicker" data-date-format="mm/dd/yyyy">
-								</div>
-							</button>
-						</div>
-						<div class="d-flex mb-3">
-							<label for="" class="input-group-text nbreVoyageur">
-								<span style="postion: absolute !important;">Nombre de voyageur</span>
-							</label>
-							<select name="nbre_de_personnes" id="inputGroupSelect01" class="form-select">
-								<option selected>1 voyageur</option>
-								<option value="1">2 voyageur</option>
-								<option value="2">3 voyageur</option>
-								<option value="3">4 voyageur</option>
-								<option value="4">5 voyageur</option>
-							</select>
-						</div>
-						<div class="row">
-							<div class="col-sm-6">
-								<div class="form-group">
-									<label for="exampleFormControlSelect1">ADULTS</label>
-									<select class="form-control" id="exampleFormControlSelect1">
-										<option>1 adult</option>
-										<option>2 adults</option>
-										<option>3 adults</option>
-										<option>4 adults</option>
-										<option>5 adults</option>
-									</select>
-								</div>
+				{{form_start(resa, {
+			'attr': {
+				'class': 'p-4',
+				'style': 'box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 16px; border-radius: 12px;'
+			}
+		})}}
+				{# {{form_row(resa)}} #}
+				<div class="d-flex flex-row justify-content-between align-items-baseline mb-4">
+					{{form_label(resa.price)}}
+					<span class="bi bi-star text-danger">
+						<span class="text-body">{{form_label(resa.comments)}}</span>
+					</span>
+				</div>
+				<div class="mb-4 rounded-3">
+					<div class="d-flex mb-3">
+						<button type="button" class="button_resa d-flex">
+							<div class="dateArrivee">
+								{{form_label(resa.dateArrivee, null, {'label': 'Arrivée'})}}
+								{{form_widget(resa.dateArrivee)}}
 							</div>
-
-							<div class="col-sm-6">
-								<div class="form-group">
-									<label for="exampleFormControlSelect1">CHILDREN</label>
-									<select class="form-control" id="exampleFormControlSelect1">
-										<option>0 children</option>
-										<option>1 child</option>
-										<option>2 children</option>
-										<option>3 children</option>
-										<option>4 children</option>
-										<option>5 children</option>
-									</select>
-								</div>
+							<div class="dateRetour ms-2">
+								{{form_label(resa.dateDepart, null, {'label': 'Départ'})}}
+								{{form_widget(resa.dateDepart)}}
 							</div>
-						</div>
+						</button>
 					</div>
-					<button type="submit" class="btn btn-outline-danger w-100">Réserver</button>
-				</form>
-			</div>
-		</div>
-	</div>
-	<div class="container">
-		<div class="row">
-			<div class="col-4 m-4"> {{ form_start(resa) }}
-				<div class="p-4" style="box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 16px; border-radius: 12px;">
-					<label for="" class="form-label d-flex flex-row justify-content-between align-items-baseline mb-4">
-						<span>{{form_row(resa.price)}}</span>
-						<span class="bi bi-star text-danger">
-							<span class="text-body">5,0 · 3 commentaires</span>
+					<div class="d-flex mb-3">
+						<span style="postion: absolute !important;">
+							{{form_label(resa.nbreVoyageur, null, {
+							'label': 'Nombre de voyageur',
+							'label_attr': {'class': 'input-group-text nbreVoyageur'}
+							})}}
 						</span>
-					</label>
-					<div class="mb-4 rounded-3">
-						<div class="d-flex mb-3">
-							<button type="button" class="button_resa d-flex"> {{ form_row(resa.dateArrivee, {
-				'label': 'Arrivée'
-			}) }} {{ form_row(resa.dateDepart, {
-				'label': 'Départ',
-				'label_attr': {
-					'class': 'ms-2'
-				}
-			}) }}
-							</button>
-						</div>
-						<div class="d-flex mb-3"> {{ form_label(resa.nbreVoyageur, null,{
-				'label': 'Nombre de voyageur',
-				'label_attr': {
-					'class': 'input-group-text'
-				}
-			}) }} {{ form_widget(resa.nbreVoyageur, {
-				'attr': {
-					'class': 'form-select'
-				}
-			}) }}
-						</div> {{form_end(resa)}}
+						{{form_widget(resa.nbreVoyageur, {'attr': {'class': 'form-select'}})}}
 					</div>
 				</div>
+				{{form_widget(resa.envoyer)}}
 			</div>
 		</div>
 	</div>
-</div>
-<pre> {{ dump(resa) }}
-		</pre>{% endblock %}
+</div></div></div>
+<pre> {{ dump(resa) }}</pre>
+{% endblock %}

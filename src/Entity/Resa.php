@@ -28,6 +28,9 @@ class Resa
     #[ORM\ManyToOne(targetEntity: BienLoc::class, inversedBy: 'resas')]
     private $comments;
 
+    #[ORM\OneToOne(inversedBy: 'resaTitle', targetEntity: BienLoc::class, cascade: ['persist', 'remove'])]
+    private $title;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -89,6 +92,18 @@ class Resa
     public function setComments(?BienLoc $comments): self
     {
         $this->comments = $comments;
+
+        return $this;
+    }
+
+    public function getTitle(): ?BienLoc
+    {
+        return $this->title;
+    }
+
+    public function setTitle(?BienLoc $title): self
+    {
+        $this->title = $title;
 
         return $this;
     }

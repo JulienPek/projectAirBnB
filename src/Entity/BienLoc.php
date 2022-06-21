@@ -41,6 +41,9 @@ class BienLoc
 
     #[ORM\Column(type: 'string', length: 255)]
     private $title;
+
+    #[ORM\OneToOne(mappedBy: 'title', targetEntity: Resa::class, cascade: ['persist', 'remove'])]
+    private $resaTitle;
     
     public function __construct()
     {
@@ -164,7 +167,7 @@ class BienLoc
         return $this;
     }
 
-    public function removeResa(Resa $resa): self
+    public function removeResa(Resa $resa)
     {
         if ($this->resas->removeElement($resa)) {
             // set the owning side to null (unless already changed)
@@ -173,7 +176,7 @@ class BienLoc
             }
         }
     }
-    
+
     public function getTitle(): ?string
     {
         return $this->title;
@@ -182,6 +185,28 @@ class BienLoc
     public function setTitle(string $title): self
     {
         $this->title = $title;
+
+        return $this;
+    }
+
+    public function getResaTitle(): ?Resa
+    {
+        return $this->resaTitle;
+    }
+
+    public function setResaTitle(?Resa $resaTitle): self
+    {
+        // unset the owning side of the relation if necessary
+        if ($resaTitle === null && $this->resaTitle !== null) {
+            $this->resaTitle->setTitle(null);
+        }
+
+        // set the owning side of the relation if necessary
+        if ($resaTitle !== null && $resaTitle->getTitle() !== $this) {
+            $resaTitle->setTitle($this);
+        }
+
+        $this->resaTitle = $resaTitle;
 
         return $this;
     }
