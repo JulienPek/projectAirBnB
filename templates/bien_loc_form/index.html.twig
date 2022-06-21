@@ -3,22 +3,42 @@
 {% block title %}Hello BienLocFormController!{% endblock %}
 
 {% block body %}
-<h1 class="text-center">Register BienLoc</h1>
-        <div class="container">
+
+<div class="container borderedRegistration py-3 mt-5">
+    <h1 class="text-center ">Proposer un bien</h1>
+    <div class="row">
+        <div class="col-6 offset-3">
             {{ form_start(BienLocForm) }}
-                {{ form_row(BienLocForm.title) }}
-                {{ form_row(BienLocForm.adress) }}
-                {{ form_row(BienLocForm.description) }}
-                {{ form_row(BienLocForm.capacity) }}
-                {{ form_row(BienLocForm.price) }}
+
+                {{ form_label(BienLocForm.title, 'Titre du bien', { 'attr': {'class': 'foo'} }) }}
+                {{ form_widget(BienLocForm.title, { 'attr': {'class': 'foo'} }) }}
+                {#{{ form_row(BienLocForm.title) }}#}
+                {{ form_label(BienLocForm.adress, 'Adresse du bien', { 'attr': {'class': 'foo'} }) }}
+                {{ form_widget(BienLocForm.adress, { 'attr': {'class': 'foo'} }) }}
+                {#{{ form_row(BienLocForm.adress) }}#}
+                {{ form_label(BienLocForm.price, 'Prix du bien', { 'attr': {'class': 'foo'} }) }}
+                {{ form_widget(BienLocForm.price, { 'attr': {'class': 'foo'} }) }}
+                {#{{ form_row(BienLocForm.price) }}#}
+                {{ form_label(BienLocForm.description, 'Description du bien', { 'attr': {'class': 'foo'} }) }}
+                {{ form_widget(BienLocForm.description, { 'attr': {'class': 'foo'} }) }}
+                {#{{ form_row(BienLocForm.description) }}#}
+                {{ form_label(BienLocForm.capacity, 'Capacité du bien', { 'attr': {'class': 'foo'} }) }}
+                {{ form_widget(BienLocForm.capacity, { 'attr': {'class': 'foo'} }) }}
+                {#{{ form_row(BienLocForm.capacity) }}#}
+                
                 <div class="mb-3">
                     <label for="formFileMultiple" class="form-label">Images du bien</label>
                         <input class="form-control" type="file" id="formFileMultiple" multiple>
                 </div>
+
+                <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+                
                 <div class="text-center">
-                <button type="submit" class="btn btn-danger">Register</button> 
+                <button type="submit" class="btn btn-success">Register</button> 
                 <button type="reset" class="btn btn-danger">reset</button>
                 </div>
             {{ form_end(BienLocForm) }}
         </div>
+    </div>
+</div>
 {% endblock %}
