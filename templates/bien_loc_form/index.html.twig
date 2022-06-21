@@ -12,10 +12,12 @@
                 {{ form_row(BienLocForm.capacity) }}
                 <div class="mb-3">
                     <label for="formFileMultiple" class="form-label">Images du bien</label>
-                    <input class="form-control" type="file" id="formFileMultiple" multiple>
+                        <input class="form-control" type="file" id="formFileMultiple" multiple>
                 </div>
-                
-        <div class="text-center"><button type="submit" class="btn btn-danger">Register</button></div>
+                <div class="text-center">
+                <button type="submit" class="btn btn-danger">Register</button> 
+                <button type="reset" class="btn btn-danger">reset</button>
+                </div>
             {{ form_end(BienLocForm) }}
         </div>
 {% endblock %}
