@@ -5,6 +5,7 @@ namespace App\Controller\Admin;
 use App\Entity\BienLoc;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\MoneyField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 
@@ -23,6 +24,8 @@ class BienLocCrudController extends AbstractCrudController
             TextField::new('capacity'),
             TextEditorField::new('description'),
             ImageField::new('image')->setUploadDir('public/assets/images/BienLoc Scambnb'),
+            MoneyField::new('price')->setCurrency('EUR'),
+            TextField::new('comments'),
         ];
     }
 
