@@ -6,8 +6,8 @@ use App\Entity\Resa;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
-use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -19,7 +19,6 @@ class ResaType extends AbstractType
             ->add('dateArrivee', DateType::class, [
                 'label' => 'Date d\'arrivée',
                 'widget' => 'single_text',
-                // 'format' => 'dd/MM/yyyy',
                 'attr' => [
                     'class' => 'js-datepicker',
                     'placeholder' => 'jj/mm/aaaa',
@@ -48,13 +47,26 @@ class ResaType extends AbstractType
                     'max' => 5,
                 ],
             ])
-            ->add('price', IntegerType::class, [
-                'attr' => [
-                    'min' => 0,
-                    'max' => 100,
-                ],
+            /* ->add('price', MoneyType::class, [
+                'currency' => 'EUR',
+                'html5' => true,
+            ]) */
+
+            ->add('price', TextType::class, [
+                'label' => '2200 € / nuit ',  
             ])
-            ->add('envoyer', SubmitType::class);
+
+            ->add('comments', TextType::class, [
+                'label' => ' 5,0 · 3 Commentaires',
+                'required' => false,
+            ])
+
+            ->add('envoyer', SubmitType::class, [
+                'label' => 'Réserver',
+                'attr' => [
+                    'class' => 'btn btn-outline-danger w-100',
+                ],
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver): void
