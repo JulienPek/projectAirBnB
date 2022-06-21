@@ -4,10 +4,11 @@
 
 {% block body %}
     <h1 class="text-center">Register</h1>
-<div class="container">
+<div class="container borderedRegistration">
 
     {{ form_start(registrationForm) }}
 
+        <div class="text-center">{{form_label(registrationForm.name, 'Your Name', { 'attr': {'class': 'foo'} })}}</div>
         <div class="text-center">{{ form_row(registrationForm.name)}}</div>
         <div class="text-center">{{ form_row(registrationForm.email) }}</div>
         <div class="text-center">{{ form_row(registrationForm.plainPassword, {
@@ -19,9 +20,10 @@
         <div class="text-center">{{ form_row(registrationForm.adresse)}}</div>
         <div class="text-center">{{ form_row(registrationForm.choix)}}</div>
         <div class="text-center">{{ form_row(registrationForm.agreeTerms) }}</div>
-        
-        <div class="text-center"><button type="submit" class="btn btn-danger">Register</button></div>
-
+        <div class="text-center">
+            <button type="submit" class="btn btn-success">Register</button>
+            <button type="reset" class="btn btn-danger">reset</button>
+        </div>
     {{ form_end(registrationForm) }}
 </div>
 {% endblock %}
