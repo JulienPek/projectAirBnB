@@ -13,7 +13,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class BienLocFormController extends AbstractController
 {
     #[Route('/bien/loc/form', name: 'app_bien_loc_form')]
-    public function index(Request $request): Response
+    public function index(Request $request, BienLocRepository $bienLoc): Response
     {
         $bienLoc = new BienLoc();
         $form = $this->createForm(BienLocType::class, $bienLoc);
