@@ -20,12 +20,13 @@ class BienLocCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         return [
+            TextField::new('title'),
             TextField::new('adress'),
             TextField::new('capacity'),
             TextEditorField::new('description'),
             ImageField::new('image')->setUploadDir('public/assets/images/BienLoc Scambnb'),
             MoneyField::new('price')->setCurrency('EUR'),
-            TextField::new('comments'),
+            //TextField::new('comments'),
         ];
     }
 
