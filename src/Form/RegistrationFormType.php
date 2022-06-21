@@ -23,8 +23,13 @@ class RegistrationFormType extends AbstractType
             ->add('email')
             ->add('name')
             ->add('birthday', DateType::class, [
-                'widget' => 'choice',
-                'input'  => 'datetime_immutable'
+                'label' => 'Date de naissance',
+                'widget' => 'single_text',
+                // 'format' => 'dd/MM/yyyy',
+                'attr' => [
+                    'class' => 'js-datepicker',
+                    'placeholder' => 'jj/mm/aaaa',
+                ],
             ])
             ->add('gender' , ChoiceType::class, [
                 'choices' =>[
