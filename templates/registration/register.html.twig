@@ -3,25 +3,55 @@
 {% block title %}Register{% endblock %}
 
 {% block body %}
-    <h1 class="text-center">Register</h1>
-<div class="container">
+    
+<div class="container borderedRegistration py-3 mt-5">
+    <h1 class="text-center ">Register</h1>
+    <div class="row">
+        <div class="col-6 offset-3">
+            {{ form_start(registrationForm) }}
 
-    {{ form_start(registrationForm) }}
+                {{form_label(registrationForm.name, 'Your Name', { 'attr': {'class': 'foo'} })}}
+                {{form_widget(registrationForm.name, { 'attr': {'class': 'foo'} })}}
+                {# <div class="text-center">{{ form_row(registrationForm.name)}}</div> #}
 
-        <div class="text-center">{{ form_row(registrationForm.name)}}</div>
-        <div class="text-center">{{ form_row(registrationForm.email) }}</div>
-        <div class="text-center">{{ form_row(registrationForm.plainPassword, {
-            label: 'Password'
-        }) }}</div>
-        <div class="text-center">{{ form_row(registrationForm.birthday)}}</div>
-        <div class="text-center">{{ form_row(registrationForm.gender)}}</div>
-        <div class="text-center">{{ form_row(registrationForm.phonenumber)}}</div>
-        <div class="text-center">{{ form_row(registrationForm.adresse)}}</div>
-        <div class="text-center">{{ form_row(registrationForm.choix)}}</div>
-        <div class="text-center">{{ form_row(registrationForm.agreeTerms) }}</div>
-        
-        <div class="text-center"><button type="submit" class="btn btn-danger">Register</button></div>
+                {{form_label(registrationForm.email, 'Your E-mail', { 'attr': {'class': 'foo'} })}}
+                {{form_widget(registrationForm.email, { 'attr': {'class': 'foo'} })}}
+                {# <div class="text-center">{{ form_row(registrationForm.email) }}</div>#}
 
-    {{ form_end(registrationForm) }}
+                {{form_label(registrationForm.plainPassword, 'Password', { 'attr': {'class': 'foo'} })}}
+                {{form_widget(registrationForm.plainPassword, { 'attr': {'class': 'foo'} })}}
+                {# <div class="text-center">{{ form_row(registrationForm.plainPassword) }}</div> #}
+
+                {{form_label(registrationForm.birthday, 'Your Birthday', { 'attr': {'class': 'foo'} })}}
+                {{form_widget(registrationForm.birthday, { 'attr': {'class': 'foo'} })}}
+                {# <div class="text-center">{{ form_row(registrationForm.birthday)}}</div>#}
+
+                {{form_label(registrationForm.gender, 'Your Gender', { 'attr': {'class': 'foo'} })}}
+                {{form_widget(registrationForm.gender, { 'attr': {'class': 'foo'} })}}
+                {#<div class="text-center">{{ form_row(registrationForm.gender)}}</div>#}
+
+                {{form_label(registrationForm.phonenumber, 'Your Gender', { 'attr': {'class': 'foo'} })}}
+                {{form_widget(registrationForm.phonenumber, { 'attr': {'class': 'foo'} })}}
+                {#<div class="text-center">{{ form_row(registrationForm.phonenumber)}}</div>#}
+
+                {{form_label(registrationForm.adresse, 'Your Gender', { 'attr': {'class': 'foo'} })}}
+                {{form_widget(registrationForm.adresse, { 'attr': {'class': 'foo'} })}}
+                {#<div class="text-center">{{ form_row(registrationForm.adresse)}}</div>#}
+
+                {{form_label(registrationForm.choix, 'Locataire ou Loueur ?', { 'attr': {'class': 'foo'} })}}
+                {{form_widget(registrationForm.choix, { 'attr': {'class': 'foo'} })}}
+                {#<div class="text-center">{{ form_row(registrationForm.choix)}}</div>#}
+
+                {{form_label(registrationForm.agreeTerms, 'Locataire ou Loueur ?', { 'attr': {'class': 'foo'} })}}
+                {{form_widget(registrationForm.agreeTerms, { 'attr': {'class': 'foo'} })}}
+                {#<div class="text-center">{{ form_row(registrationForm.agreeTerms) }}</div>#}
+                
+                <div class="text-center">
+                    <button type="submit" class="btn btn-success">Register</button>
+                    <button type="reset" class="btn btn-danger">reset</button>
+                </div>
+            {{ form_end(registrationForm) }}
+        </div>
+    </div>
 </div>
 {% endblock %}

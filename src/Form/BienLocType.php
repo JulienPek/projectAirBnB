@@ -15,6 +15,7 @@ class BienLocType extends AbstractType
             ->add('adress')
             ->add('description')
             ->add('capacity')
+            ->add('price')
             ->add('image')
             ->add('title')
         ;

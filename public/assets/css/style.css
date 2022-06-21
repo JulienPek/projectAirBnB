@@ -47,3 +47,17 @@
 .nbreVoyageur {
     position: relative;
 }
+
+.borderedRegistration {
+    border: 2px solid #111212;
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+
+}
+
+.borderedRegistration:hover {
+    -webkit-box-shadow: 25px 25px 50px 10px #696363;
+    -moz-box-shadow: 25px 25px 50px 10px #696363;
+    box-shadow: 25px 25px 50px 10px #696363;
+}
