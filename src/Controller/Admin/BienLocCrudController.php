@@ -24,7 +24,8 @@ class BienLocCrudController extends AbstractCrudController
             TextField::new('adress'),
             TextField::new('capacity'),
             TextEditorField::new('description'),
-            ImageField::new('image')->setUploadDir('/assets/images/BienLoc Scambnb'),
+            ImageField::new('image')->setBasePath('assets/images/BienLoc Scambnb')
+            ->setUploadDir('/assets/images/BienLoc Scambnb'),
             MoneyField::new('price')->setCurrency('EUR'),
             TextField::new('comments'),
         ];

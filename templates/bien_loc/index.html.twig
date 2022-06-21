@@ -12,14 +12,14 @@
                     {# <pre>
                         {{ dump(bienList) }}
                     </pre> #}
-                    {# <img src="{{ asset('images/' ~ bienList.image) }}" class="img-fluid rounded-start" alt="image moisie"> #}
-                    <img src="{{bienList.image}}" class="img-fluid rounded-start" alt="image moisie">   
+                    <img src="{{ asset('assets/images/BienLoc Scambnb/' ~ bienList.image) }}" class="img-fluid rounded-start" alt="image moisie">
+                    {# <img src="{{bienList.image}}" class="img-fluid rounded-start" alt="image moisie">    #}
                 </div>
                 <div class="col-md-8">
                     <div class="card-body">
                         <h3 class="card-title">{{bienList.title}}</h3>
                             <h4 class="card-category">{{bienList.capacity}}</h4>
-                            <p class="card-text">{{bienList.description}}</p>
+                            <p class="card-text">{{bienList.description|raw }}</p>
                                 <p class="card-text"><small class="text-muted">{{bienList.adress}}</small></p>
                     </div>
                 </div>
