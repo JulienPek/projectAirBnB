@@ -20,7 +20,13 @@ class Resa
     private $dateDepart;
 
     #[ORM\Column(type: 'integer', nullable: true)]
-    private $nbre_de_personnes;
+    private $nbreVoyageur;
+
+    #[ORM\OneToOne(inversedBy: 'resa', targetEntity: BienLoc::class, cascade: ['persist', 'remove'])]
+    private $price;
+
+    #[ORM\ManyToOne(targetEntity: BienLoc::class, inversedBy: 'resas')]
+    private $comments;
 
     public function getId(): ?int
     {
@@ -51,14 +57,38 @@ class Resa
         return $this;
     }
 
-    public function getNbreDePersonnes(): ?int
-    {
-        return $this->nbre_de_personnes;
+    public function getNbreVoyageur(): ?int
+    { 
+        return $this->nbreVoyageur;
     }
 
-    public function setNbreDePersonnes(?int $nbre_de_personnes): self
+    public function setNbreVoyageur(?int $nbreVoyageur): self
     {
-        $this->nbre_de_personnes = $nbre_de_personnes;
+        $this->nbreVoyageur = $nbreVoyageur;
+
+        return $this;
+    }
+
+    public function getPrice(): ?BienLoc
+    {
+        return $this->price;
+    }
+
+    public function setPrice(?BienLoc $price): self
+    {
+        $this->price = $price;
+
+        return $this;
+    }
+
+    public function getComments(): ?BienLoc
+    {
+        return $this->comments;
+    }
+
+    public function setComments(?BienLoc $comments): self
+    {
+        $this->comments = $comments;
 
         return $this;
     }
