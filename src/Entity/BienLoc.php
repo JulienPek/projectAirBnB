@@ -164,7 +164,7 @@ class BienLoc
         return $this;
     }
 
-    public function removeResa(Resa $resa): self
+    public function removeResa(Resa $resa): void
     {
         if ($this->resas->removeElement($resa)) {
             // set the owning side to null (unless already changed)
