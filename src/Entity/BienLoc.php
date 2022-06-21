@@ -39,6 +39,9 @@ class BienLoc
     #[ORM\OneToMany(mappedBy: 'comments', targetEntity: Resa::class)]
     private $resas;
 
+    #[ORM\Column(type: 'string', length: 255)]
+    private $title;
+    
     public function __construct()
     {
         $this->resas = new ArrayCollection();
@@ -169,6 +172,16 @@ class BienLoc
                 $resa->setComments(null);
             }
         }
+    }
+    
+    public function getTitle(): ?string
+    {
+        return $this->title;
+    }
+
+    public function setTitle(string $title): self
+    {
+        $this->title = $title;
 
         return $this;
     }
